@@ -27,11 +27,11 @@ def scrape():
 
 def sentence_segment_filter_docs(doc_array):
     # get sentence segemented review with #sentences > 2
+    nlp = spacy.load('en_core_web_sm')
+    nlp.add_pipe(nlp.create_pipe('sentencizer'))
     sentences = []
-    
     for doc in nlp.pipe(doc_array, disable=['parser', 'tagger', 'ner'], batch_size=1000, n_threads=8):
         sentences.append([sent.text.strip() for sent in doc.sents])
-
     return sentences
 
 def main():
