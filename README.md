@@ -177,3 +177,9 @@ If you use this work, please cite our paper using the following Bibtex tag:
        journal={arXiv preprint arXiv:1908.11860},
        year={2019}
     }
+
+# CoroNow
+Transfer sentiment analysis to tweets about COVID-19.
+1. Prepare tweet corpus for finetuning.
+2. BERT LM finetuning: check the README in the "finetuning_and_classification" folder for how to finetune the BERT models on a domain specific corpus.
+3. Down-Stream Classification: check the README in the "finetuning_and_classification" folder for how to finetune the BERT models on a domain specific corpus.
