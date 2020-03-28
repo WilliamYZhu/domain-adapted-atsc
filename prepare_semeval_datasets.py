@@ -235,7 +235,7 @@ for fn in args.files:
 
     print(fn)
     sents_train, ats_train, idx2labels = semeval2014term_to_aspectsentiment_hr(fn,
-                                                                               remove_conflicting=args.noconfl)
+                                                                               remove_conflicting=True) #remove conflicting changed to always
 
     sentence_pairs_train, labels_train, counts_train = create_sentence_pairs(sents_train, ats_train)
 
