@@ -34,6 +34,6 @@ def main():
     tweets = []
     for filename in os.listdir(RAW_DIR):
         if filename.endswith(".json"):
-            with open(f"RAW_DIR/{filename}") as file:
+            with open(f"{RAW_DIR}/{filename}") as file:
                 for line in file:
                     print(json.loads(line)['tweet'])
