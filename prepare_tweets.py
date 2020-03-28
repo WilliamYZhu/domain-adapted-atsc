@@ -1,19 +1,23 @@
 import argparse
+import os
+
+RAW_DIR = "./data/raw/tweets"
+TRANS_DIR = "./data/transformed/tweets"
 
 def get_tweets(keyword):
-    try:
-        os.mkdir(f"./data/raw/tweets")
-    except:
-        pass
     c = twint.Config()
     c.Search = keyword
     c.Lang = "en"
     c.Store_json = True
-    c.Output = f"./data/raw/tweets/tweets_{keyword}.json"
+    c.Output = f"{RAW_DIR}/tweets_{keyword}.json"
     twint.run.Search(c)
 
 def scrape():
     import twint
+    try:
+        os.mkdir(RAW_DIR)
+    except:
+        pass
     get_tweets("coronavirus")
     get_tweets("CDC")
 
