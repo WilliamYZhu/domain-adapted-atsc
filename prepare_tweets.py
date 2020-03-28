@@ -26,7 +26,14 @@ def main():
     parser.add_argument('--scrape',
                         action='store_true',
                         help='scrape tweets about COVID-19')
-    parser.add_argument('--large',
-                        action='store_true',
-                        help='export large corpus (10 mio), default is 1 mio')
     args = parser.parse_args()
+    
+    if args.scrape:
+        scrape()
+    
+    tweets = []
+    for filename in os.listdir(RAW_DIR):
+        if filename.endswith(".json"):
+            with open(f"RAW_DIR/{filename}") as file:
+                for line in file:
+                    print(json.loads(line)['tweet'])
