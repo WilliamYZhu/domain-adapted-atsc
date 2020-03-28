@@ -60,6 +60,11 @@ def main():
     nr_sents = sum([len(s) for s in sentences])
     print(f'Segmented {nr_sents} tweet sentences')
 
+    try:
+        os.mkdir(TRANS_DIR)
+    except:
+        pass
+    
     with open(f"{TRANS_DIR}/tweet_corpus.txt", "w") as f:
         for sents in tqdm(sentences):
             real_sents = []
