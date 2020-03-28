@@ -183,3 +183,20 @@ Transfer sentiment analysis to tweets about COVID-19.
 1. Prepare tweet corpus for finetuning.
 2. BERT LM finetuning: check the README in the "finetuning_and_classification" folder for how to finetune the BERT models on a domain specific corpus.
 3. Down-Stream Classification: check the README in the "finetuning_and_classification" folder for how to finetune the BERT models on a domain specific corpus.
+
+# Training Workflow
+__________________.py
+    scrape tweets with tags CDC, CoronaVirus, and Corona. Transform into plain text file with the same format as dev_corpus.txt
+finetune_on_pregenerated.py
+    change data directory to be the output of previous step
+run_glue.py
+    change model directory to the out_dir from previous step,
+    remove two flags: --evaluate_during_training, --do_eval
+
+# Prediction Workflow
+aggregate_and_transform_tweets.py
+    entire timestamp directory on FireBase => single xml file
+prepare_semeval_datasets.py
+    single xml file => transformed single xml file
+predict.py
+    transformed xml file => returns prediction array "preds"
