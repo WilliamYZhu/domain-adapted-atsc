@@ -25,7 +25,7 @@ Run actual finetuning with:
 Prepare the finetuning corpus:
 
     python pregenerate_training_data.py \
-    --train_corpus ../data/raw/tweet_corpus.txt \
+    --train_corpus ../data/transformed/tweets/tweet_corpus.txt \
     --bert_model bert-base-uncased --do_lower_case \
     --output_dir tweet_corpus_prepared/ \
     --epochs_to_generate 2 --max_seq_len 256
