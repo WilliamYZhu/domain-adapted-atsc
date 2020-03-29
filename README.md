@@ -19,7 +19,7 @@ First clone repository, open a terminal and cd to the repository
 For downstream finetuning, you also need to install torch, pytorch-transformers package and APEX (here for CUDA 10.0, which
 is compatible with torch 1.1.0 ). You can also perform downstream finetuning without APEX, but it has been used for the paper.
 
-    pip install scipy sckit-learn  # pip install --default-timeout=100 scipy; if you get a timeout
+    pip install scipy sklearn  # pip install --default-timeout=100 scipy; if you get a timeout
     pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp36-cp36m-linux_x86_64.whl
     pip install pytorch-transformers tensorboardX
 
